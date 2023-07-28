@@ -1,6 +1,6 @@
-# Vite Three Starter Kit
+# Blender Substance 3D workflow to Three JS
 
-use branch feature/vite-three-experience for bigger projects
+![cube as it is rendered by Blender](https://github.com/jbrialon/blender-substance-3d/blob/main/static/render.png?raw=true)
 
 ## Setup
 
