@@ -31,7 +31,7 @@ export default class Environment {
       "/textures/environmentMaps/0/nz.jpg",
     ]);
 
-    this.environmentMap.encoding = THREE.sRGBEncoding;
+    this.environmentMap.colorSpace = THREE.SRGBColorSpace;
 
     this.scene.background = this.environmentMap;
     this.scene.environment = this.environmentMap;
