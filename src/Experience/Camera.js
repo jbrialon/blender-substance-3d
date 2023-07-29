@@ -22,7 +22,8 @@ export default class Camera {
       100
     );
 
-    this.instance.position.set(4, 1, -4);
+    this.instance.position.set(-3.2, 1, -4);
+    this.instance.rotation.set(2.9, -0.5, 3);
     this.scene.add(this.instance);
   }
 
