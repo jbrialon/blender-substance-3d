@@ -14,7 +14,7 @@ export default class Cube {
 
     // Debug
     if (this.debug.active) {
-      this.debugFolder = this.debug.ui.addFolder("Cube");
+      // this.debugFolder = this.debug.ui.addFolder("Cube");
     }
 
     // Setup

@@ -10,23 +10,9 @@ export default class Renderer {
     this.scene = this.experience.scene;
     this.camera = this.experience.camera;
 
-    // Options
-    this.options = {
-      clearColor: "#abb7bf",
-    };
-
-    // Debug
-    if (this.debug.active) {
-      this.debugFolder = this.debug.ui.addFolder("World");
-      this.debugFolder
-        .addColor(this.options, "clearColor")
-        .name("Background Color")
-        .onChange(() => {
-          this.instance.setClearColor(this.options.clearColor);
-        });
-    }
-
+    // Setup
     this.setInstance();
+    this.setDebug();
   }
 
   setInstance() {
@@ -39,12 +25,26 @@ export default class Renderer {
     this.instance.outputEncoding = THREE.sRGBEncoding;
     this.instance.shadowMap.enabled = true;
     this.instance.shadowMap.type = THREE.PCFSoftShadowMap;
-    this.instance.setClearColor(this.options.clearColor);
-
+    this.instance.physicallyCorrectLights = true;
     this.instance.setSize(this.sizes.width, this.sizes.height);
     this.instance.setPixelRatio(this.sizes.pixelRatio);
   }
 
+  setDebug() {
+    // Debug
+    if (this.debug.active) {
+      this.debugFolder = this.debug.ui.addFolder("World");
+      this.debugFolder.add(this.instance, "toneMapping", {
+        No: THREE.NoToneMapping,
+        Linear: THREE.LinearToneMapping,
+        Reinhard: THREE.ReinhardToneMapping,
+        Cineon: THREE.CineonToneMapping,
+        ACESFilmic: THREE.ACESFilmicToneMapping,
+      });
+
+      this.debugFolder.add(this.instance, "toneMappingExposure", 0, 10, 0.001);
+    }
+  }
   resize() {
     this.instance.setSize(this.sizes.width, this.sizes.height);
     this.instance.setPixelRatio(Math.min(this.sizes.pixelRatio, 2));
