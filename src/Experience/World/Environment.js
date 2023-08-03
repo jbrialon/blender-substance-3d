@@ -16,19 +16,19 @@ export default class Environment {
     }
 
     // Setup
-    // this.setAmbientLight();
+    this.setAmbientLight();
     this.setEnvMap();
     this.setSunLight();
   }
 
   setEnvMap() {
     this.environmentMap = cubeTextureLoader.load([
-      "/textures/environmentMaps/0/px.jpg",
-      "/textures/environmentMaps/0/nx.jpg",
-      "/textures/environmentMaps/0/py.jpg",
-      "/textures/environmentMaps/0/ny.jpg",
-      "/textures/environmentMaps/0/pz.jpg",
-      "/textures/environmentMaps/0/nz.jpg",
+      "/textures/environmentMaps/2/px.png",
+      "/textures/environmentMaps/2/nx.png",
+      "/textures/environmentMaps/2/py.png",
+      "/textures/environmentMaps/2/ny.png",
+      "/textures/environmentMaps/2/pz.png",
+      "/textures/environmentMaps/2/nz.png",
     ]);
 
     this.environmentMap.colorSpace = THREE.SRGBColorSpace;

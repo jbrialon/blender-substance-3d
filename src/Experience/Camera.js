@@ -30,7 +30,7 @@ export default class Camera {
   setOrbitControls() {
     this.controls = new OrbitControls(this.instance, this.canvas);
     this.controls.enableDamping = true;
-
+    this.instance.controls = this.controls;
     // this.controls.minPolarAngle = THREE.MathUtils.degToRad(30);
     // this.controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
   }

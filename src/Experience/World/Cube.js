@@ -8,20 +8,12 @@ export default class Cube {
     this.scene = this.experience.scene;
     this.time = this.experience.time;
     this.resources = this.experience.resources;
-
-    // Options
-    this.options = {};
-
-    // Debug
-    if (this.debug.active) {
-      // this.debugFolder = this.debug.ui.addFolder("Cube");
-    }
+    this.controls = this.experience.transformControls;
 
     // Setup
     this.resource = this.resources.items.cubeModel;
 
     this.setModel();
-    this.setAnimation();
   }
 
   setModel() {
@@ -34,14 +26,23 @@ export default class Cube {
       }
     });
 
-    if (this.debug.active) {
-    }
+    this.cubeOne = this.model.clone();
+    this.cubeOne.position.set(-1.35, 1, 0);
+    this.cubeOne.rotation.set(-Math.PI, 0.34, -Math.PI);
+    this.scene.add(this.cubeOne);
+    this.controls.attach(this.cubeOne);
 
-    this.model.rotation.y = Math.PI;
-    this.scene.add(this.model);
+    this.cubeTwo = this.model.clone();
+    this.cubeTwo.position.set(0.89, 1, 0.73);
+    this.cubeTwo.rotation.set(-Math.PI, -0.27, -Math.PI);
+    this.scene.add(this.cubeTwo);
+
+    this.cubeThree = this.model.clone();
+    this.cubeThree.position.set(-0.35, 3, 0.36);
+    this.cubeThree.rotation.set(-Math.PI, 0.14, -Math.PI);
+    this.scene.add(this.cubeThree);
+    this.controls.attach(this.cubeTwo);
   }
-
-  setAnimation() {}
 
   update() {
     // Cube Animation

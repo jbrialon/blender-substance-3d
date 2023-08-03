@@ -5,6 +5,7 @@ import Time from "./Utils/Time.js";
 import Resources from "./Utils/Resources.js";
 import Debug from "./Utils/Debug.js";
 import Stats from "./Utils/Stats.js";
+import TransformControls from "./Utils/TransformControls.js";
 
 import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
@@ -38,6 +39,7 @@ export default class Experience {
     this.resources = new Resources(sources);
     this.camera = new Camera();
     this.renderer = new Renderer();
+    this.transformControls = new TransformControls();
 
     // World
     this.world = new World();
