@@ -7,7 +7,7 @@ export default [
   {
     name: "watchModel",
     type: "gltfModel",
-    path: "/models/watch/watch.gltf",
+    path: "/models/watch/watch.glb",
   },
   {
     name: "animationModel",
