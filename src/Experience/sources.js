@@ -19,9 +19,9 @@ export default [
     type: "gltfModel",
     path: "/models/skate/test.glb",
   },
-  {
-    name: "boardModel",
-    type: "gltfModel",
-    path: "/models/skate/board.glb",
-  },
+  // {
+  //   name: "boardModel",
+  //   type: "gltfModel",
+  //   path: "/models/skate/board.glb",
+  // },
 ];
