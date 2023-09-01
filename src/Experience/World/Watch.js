@@ -11,15 +11,18 @@ export default class Watch {
     this.controls = this.experience.transformControls;
     this.metalMaterial = null;
 
+    // Debug
+    if (this.debug.active) {
+      this.debugFolder = this.debug.ui.addFolder("Watch");
+    }
+
     // Options
-    this.debugFolder = this.debug.ui.addFolder("Watch");
     this.options = {
       metalMaterialColor: new THREE.Color(0x0b0a0a),
     };
 
     // Setup
     this.resource = this.resources.items.watchModel;
-
     this.setModel();
   }
 
@@ -36,12 +39,14 @@ export default class Watch {
         }
       }
     });
-    this.debugFolder
-      .addColor(this.options, "metalMaterialColor")
-      .name("Metal Material Color")
-      .onChange(() => {
-        this.metalMaterial.color.set(this.options.metalMaterialColor);
-      });
+    if (this.debug.active) {
+      this.debugFolder
+        .addColor(this.options, "metalMaterialColor")
+        .name("Metal Material Color")
+        .onChange(() => {
+          this.metalMaterial.color.set(this.options.metalMaterialColor);
+        });
+    }
 
     this.model.scale.set(0.1, 0.1, 0.1);
     this.model.rotation.set(
