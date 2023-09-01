@@ -12,7 +12,7 @@ export default class Watch {
     this.metalMaterial = null;
 
     // Options
-    // this.debugFolder = this.debug.ui.addFolder("Watch");
+    this.debugFolder = this.debug.ui.addFolder("Watch");
     this.options = {
       metalMaterialColor: new THREE.Color(0x0b0a0a),
     };
@@ -25,7 +25,6 @@ export default class Watch {
 
   setModel() {
     this.model = this.resource.scene;
-
     this.model.traverse((child) => {
       if (child instanceof THREE.Mesh) {
         child.castShadow = true;
@@ -37,13 +36,19 @@ export default class Watch {
         }
       }
     });
+    this.debugFolder
+      .addColor(this.options, "metalMaterialColor")
+      .name("Metal Material Color")
+      .onChange(() => {
+        this.metalMaterial.color.set(this.options.metalMaterialColor);
+      });
 
-    // this.debugFolder
-    //   .addColor(this.options, "metalMaterialColor")
-    //   .name("Metal Material Color")
-    //   .onChange(() => {
-    //     this.metalMaterial.color.set(this.options.metalMaterialColor);
-    //   });
+    this.model.scale.set(0.1, 0.1, 0.1);
+    this.model.rotation.set(
+      2.403496113504702,
+      -0.007089392424503884,
+      3.135144249136255
+    );
 
     this.scene.add(this.model);
     this.controls.attach(this.model);
