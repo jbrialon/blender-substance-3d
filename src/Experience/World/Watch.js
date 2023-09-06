@@ -60,6 +60,6 @@ export default class Watch {
   }
 
   update() {
-    // Cube Animation
+    // Watch Animation
   }
 }
